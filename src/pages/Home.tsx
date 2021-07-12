@@ -7,7 +7,7 @@ import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
 
 import '../styles/auth.scss';
-import { useAuth } from '../contexts/auth';
+import { useAuth } from '../hooks/useAuth';
 
 export const Home: React.FC = () => {
   const history = useHistory();

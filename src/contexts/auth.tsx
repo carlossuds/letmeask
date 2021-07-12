@@ -1,4 +1,4 @@
-import { useEffect, createContext, useContext, useState } from 'react';
+import { useEffect, createContext, useState } from 'react';
 
 import { firebase, auth } from '../services/firebase';
 
@@ -8,12 +8,12 @@ type User = {
   avatar: string;
 };
 
-type AuthContextType = {
+export type AuthContextType = {
   user: User | undefined;
   signInWithGoogle: () => Promise<void>;
 };
 
-const AuthContext = createContext({} as AuthContextType);
+export const AuthContext = createContext({} as AuthContextType);
 
 export const AuthProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<User>();
@@ -65,12 +65,4 @@ export const AuthProvider: React.FC = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
-};
-
-export const useAuth = (): AuthContextType => {
-  const context = useContext(AuthContext);
-
-  if (!context) throw new Error('useAuth must be used within an AuthProvider');
-
-  return context;
 };

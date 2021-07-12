@@ -5,7 +5,7 @@ import logoImg from '../assets/images/logo.svg';
 
 import '../styles/auth.scss';
 import { Button } from '../components/Button';
-import { useAuth } from '../contexts/auth';
+import { useAuth } from '../hooks/useAuth';
 
 export const NewRoom: React.FC = () => {
   const { user } = useAuth();
